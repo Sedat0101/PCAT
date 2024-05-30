@@ -1,0 +1,20 @@
+{
+  "name": "pcat",
+  "version": "1.0.0",
+  "description": "PCAT photo app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sedat0101/PCAT"
+  },
+  "keywords": [
+    "photo",
+    "app",
+    "camera"
+  ],
+  "author": "Sedat İritaş",
+  "license": "ISC"
+}
