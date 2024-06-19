@@ -1,16 +1,16 @@
 const express = require('express')
+const path = require('path');
 
 const app = express()
 
-app.get('/', (rep, res) => {
+//MIDDLEWARES
+app.use(express.static('public'))
 
-    const photo = {
-        id: 1,
-        name: "Photo Name",
-        description: "Photo description"
-    }
-    res.send(photo)
+
+app.get('/', (req, res) => {
+     res.sendFile(path.resolve('temp','index.html'))
 })
+
 // GET res genel olarak verileri listelemek için kullanılır
 // POST veri göndermek için kullanılır
 
