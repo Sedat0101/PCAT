@@ -1,8 +1,14 @@
 const express = require('express')
+const mongoose = require('mongoose')
 const ejs = require('ejs')
 const path = require('path');
+const photo = require('./models/Photo');
+const Photo = require('./models/Photo');
 
 const app = express()
+
+// Connet DB
+mongoose.connect('mongodb://localhost/pcat-test-db', {})
 
 // Template Engine
 app.set("view engine", "ejs")
@@ -15,12 +21,16 @@ app.set("view engine", "ejs")
 
 //MIDDLEWARES
 app.use(express.static('public'))
-
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 // Routes 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     //res.sendFile(path.resolve('temp','index.html'))
-    res.render("index")
+    const photos = await Photo.find({})
+    res.render("index", {
+        photos
+    })
 })
 
 app.get('/about', (req, res) => {
@@ -29,6 +39,11 @@ app.get('/about', (req, res) => {
 
 app.get('/addPhoto', (req, res) => {
     res.render("addPhoto")
+})
+
+app.post('/photos', async (req, res) => {
+    await Photo.create(req.body)
+    res.redirect('/')
 })
 
 
