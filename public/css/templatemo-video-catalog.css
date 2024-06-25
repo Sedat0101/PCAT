@@ -229,7 +229,17 @@ h2, p { color: #666666; }
     justify-content: center;
     background-color: rgba(0,0,0,0.4);
     cursor: pointer;
-    transition: all 0.3s ease: ;
+    transition: all 0.3s ease;
+}
+
+.tm-catalog-item-img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.tm-catalog-single-item-img {
+    height: auto;
 }
 
 .tm-overlay-icon {
